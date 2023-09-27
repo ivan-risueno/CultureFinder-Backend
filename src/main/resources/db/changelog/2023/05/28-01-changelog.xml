@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.22.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1685270853443-1" author="ivanr (generated)">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807"
+                        minValue="1" sequenceName="events_seq" startValue="1"/>
+    </changeSet>
+    <changeSet id="1685270853443-2" author="ivanr (generated)">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807"
+                        minValue="1" sequenceName="incidents_seq" startValue="1"/>
+    </changeSet>
+    <changeSet id="1685270853443-3" author="ivanr (generated)">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807"
+                        minValue="1" sequenceName="lists_seq" startValue="1"/>
+    </changeSet>
+    <changeSet id="1685270853443-4" author="ivanr (generated)">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807"
+                        minValue="1" sequenceName="users_seq" startValue="1"/>
+    </changeSet>
+    <changeSet id="1685270853443-5" author="ivanr (generated)">
+        <createTable tableName="assistances">
+            <column name="event_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="assistances_pkey"/>
+            </column>
+            <column name="user_id" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="assistances_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1685270853443-6" author="ivanr (generated)">
+        <createTable tableName="event_ratings">
+            <column name="event_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="event_ratings_pkey"/>
+            </column>
+            <column name="score" type="FLOAT4"/>
+            <column name="user_id" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="event_ratings_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1685270853443-7" author="ivanr (generated)">
+        <createTable tableName="events">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="events_pkey"/>
+            </column>
+            <column name="adreca" type="TEXT"/>
+            <column name="altres_categories" type="TEXT"/>
+            <column name="ambit" type="TEXT"/>
+            <column name="categoria" type="TEXT"/>
+            <column name="comarcaimunicipi" type="TEXT"/>
+            <column name="data_fi" type="date"/>
+            <column name="data_inici" type="date"/>
+            <column name="denominacio" type="TEXT"/>
+            <column name="descripcio" type="TEXT"/>
+            <column name="email" type="TEXT"/>
+            <column name="espai" type="TEXT"/>
+            <column name="horari" type="TEXT"/>
+            <column name="imatges" type="TEXT"/>
+            <column name="img_app" type="TEXT"/>
+            <column name="latitud" type="FLOAT4"/>
+            <column name="link" type="TEXT"/>
+            <column name="longitud" type="FLOAT4"/>
+            <column name="preu" type="TEXT"/>
+            <column name="subtitol" type="TEXT"/>
+            <column name="telefon" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1685270853443-8" author="ivanr (generated)">
+        <createTable tableName="incidents">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="incidents_pkey"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="event_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_resolved" type="BOOLEAN"/>
+            <column name="response" type="VARCHAR(255)"/>
+            <column name="user_id" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1685270853443-9" author="ivanr (generated)">
+        <createTable tableName="lists">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="lists_pkey"/>
+            </column>
+            <column name="description" type="TEXT"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="user_id" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1685270853443-10" author="ivanr (generated)">
+        <createTable tableName="saved_events_list_events">
+            <column name="saved_events_list_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="events" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1685270853443-11" author="ivanr (generated)">
+        <createTable tableName="sessions">
+            <column name="user_id" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sessions_pkey"/>
+            </column>
+            <column name="token" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1685270853443-12" author="ivanr (generated)">
+        <createTable tableName="users">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="users_pkey"/>
+            </column>
+            <column name="birth_date" type="VARCHAR(255)"/>
+            <column name="is_admin" type="BOOLEAN"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="preferred_categories" type="VARCHAR(255)"/>
+            <column name="profile_image" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1685270853443-13" author="ivanr (generated)">
+        <addForeignKeyConstraint baseColumnNames="saved_events_list_id" baseTableName="saved_events_list_events"
+                                 constraintName="fkhk2jwu5lu3bdl46yp5mcowc8x" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="lists"/>
+    </changeSet>
+    <changeSet id="1685270853443-14" author="ivanr (generated)">
+        <addForeignKeyConstraint baseColumnNames="event_id" baseTableName="event_ratings"
+                                 constraintName="fks3630l2h76cf3pr5s4yplde2s" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="events"/>
+    </changeSet>
+    <include file="db/changelog/2023/05/28-02-changelog.xml"/>
+    <include file="db/changelog/2023/05/30-01-changelog.xml"/>
+
+</databaseChangeLog>
