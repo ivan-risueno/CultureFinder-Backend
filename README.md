@@ -43,13 +43,7 @@ As mentioned before, this backend application is made with Java JDK 17, using th
 
 ### Installation
 
-_To know about running the application, please see the [Releasing Information](https://example.com)_
-
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://github.com/ivan-risueno/CultureFinder-Backend/blob/main/docs/Final_Release/CultureFinder_ReleasingInformation.docx.pdf)_
+_To know about running the application, please see the [Releasing Information]([https://example.com](https://github.com/ivan-risueno/CultureFinder-Backend/blob/main/docs/Final_Release/CultureFinder_ReleasingInformation.docx.pdf))_
 
 ## Roadmap
 
